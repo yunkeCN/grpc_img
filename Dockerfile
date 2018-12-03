@@ -1,0 +1,16 @@
+FROM node:10.14.0-alpine
+
+LABEL Author="明源云客 <lixb@mingyuanyun.com>"
+
+USER node
+
+WORKDIR /home/node
+
+RUN npm config set registry https://registry.npm.taobao.org \
+  && echo "{\"description\": \"npm pre install\", \"repository\": \"https://no.git.repository\", \"license\": \"UNLICENSED\"}" > package.json \
+  && npm i grpc@1.16.1 --save \
+  && npm cache clean --force
+
+WORKDIR /home/node/app
+
+CMD [ "node" ]
