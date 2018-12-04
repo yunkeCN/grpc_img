@@ -9,6 +9,7 @@ function main() {
   const cred = grpc.ServerCredentials.createInsecure();
   server.addService(proto.Demo.service, {
     echo: function({request: req}, cb) {
+      console.log(`收到数据：${req.text}`);
       cb(null, {text: req.text});
     }
   });
