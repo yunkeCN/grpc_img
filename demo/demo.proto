@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package demo;
+
+service Demo {
+  rpc Echo (In) returns (Out) {}
+}
+
+message In {
+  string text = 1;
+}
+
+message Out {
+  string text = 1;
+}

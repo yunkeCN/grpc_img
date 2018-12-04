@@ -18,7 +18,7 @@ npm 安装 grpc-node 优先通过下载二进制包安装 grpc.node。
 ```sh
 # 启动空镜像
 docker run --rm -it grpc:v1.0.0 sh
-# 挂在外部
+# 挂载外部应用 - 启动一个 grpc 服务器
 docker run \
   --name grpc-test \
   -v $(pwd)/demo:/home/node/app \
@@ -26,4 +26,6 @@ docker run \
   -d \
   grpc:v1.0.0 \
   npm run run
+# 尝试连接 - 启动一个 grpc 客户端
+node demo/client.js
 ```
