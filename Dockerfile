@@ -10,7 +10,8 @@ RUN npm config set registry https://registry.npm.taobao.org \
   && echo "{\"description\": \"npm pre install\", \"repository\": \"https://no.git.repository\", \"license\": \"UNLICENSED\"}" > package.json \
   && npm i grpc@1.16.1 --save \
   && npm cache clean --force \
-  && mkdir res
+  && mkdir res \
+  && mkdir app
 
 RUN cd res \
   && wget https://codeload.github.com/golang/protobuf/zip/master -O golang_protobuf.zip \
